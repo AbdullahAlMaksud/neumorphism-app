@@ -2,9 +2,15 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs"
 import './style.css'
 import { BiArrowToLeft } from "react-icons/bi"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
-
+import React, { useCallback } from 'react'
+import { useDropzone } from 'react-dropzone'
 
 function App() {
+
+  const onDrop = useCallback(acceptedFiles => {
+    // Do something with the files
+  }, [])
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
     <>
@@ -45,18 +51,18 @@ function App() {
                 <p className="text-[#969696] mt-3 max-h-[7.5rem] overflow-clip">
                   Hello! I’m Dave, your sales rep here from Salesforce. I’ve been working at this awesome company for 3 years now.
                   <br />
-                  <br/>
+                  <br />
                   I was born and raised in Albany, NY& have been living in Santa Carla for the past 10 years my wife Tiffany and my 4 year old twin daughters- Emma and Ella. Both of them are just starting school, so my calender is usually blocked between 9-10 AM. This is a...
                 </p>
               </TabPanel>
               <TabPanel>
-              <p className="text-[#969696] mt-3 max-h-[7.5rem] overflow-clip">
-              Compellingly integrate excellent applications through market positioning experiences. Interactively reconceptualize extensible e-business without compelling e-tailers. Holisticly network integrated scenarios vis-a-vis frictionless value. Professionally orchestrate value-added manufactured products vis-a-vis user friendly products. Credibly.
+                <p className="text-[#969696] mt-3 max-h-[7.5rem] overflow-clip">
+                  Compellingly integrate excellent applications through market positioning experiences. Interactively reconceptualize extensible e-business without compelling e-tailers. Holisticly network integrated scenarios vis-a-vis frictionless value. Professionally orchestrate value-added manufactured products vis-a-vis user friendly products. Credibly.
                 </p>
               </TabPanel>
               <TabPanel>
-              <p className="text-[#969696] mt-3 max-h-[7.5rem] overflow-clip">
-              Authoritatively pontificate compelling results with optimal scenarios. Assertively syndicate quality core competencies without just in time scenarios. Rapidiously incentivize B2B relationships without progressive convergence. Objectively.
+                <p className="text-[#969696] mt-3 max-h-[7.5rem] overflow-clip">
+                  Authoritatively pontificate compelling results with optimal scenarios. Assertively syndicate quality core competencies without just in time scenarios. Rapidiously incentivize B2B relationships without progressive convergence. Objectively.
                 </p>
               </TabPanel>
             </Tabs>
@@ -101,25 +107,38 @@ function App() {
 
 
             <section className="absolute flex justify-between items-center px-14 pt-5 w-full gap-10">
-            <div className="w-fit">
-              <div className="bg-[#171717] shadow-inner shadow-black text-white rounded-[23px] flex gap-2 py-2 px-2">
-                <span
-                  className="w-40 rounded-2xl text-center py-2 hover:shadow-lg hover:shadow-black hover:cursor-pointer"
-                >
-                  Gallery
-                </span>
-                
-              </div>
-            </div>
+              <div className="w-fit">
+                <div className="bg-[#171717] shadow-inner shadow-black text-white rounded-[23px] flex gap-2 py-2 px-2">
+                  <span
+                    className="w-40 rounded-2xl text-center py-2 hover:shadow-lg hover:shadow-black hover:cursor-pointer"
+                  >
+                    Gallery
+                  </span>
 
-            <div className="flex justify-between items-center w-full">
-              <button className="addimagebutton">+ Add Images</button>
-              <div className="flex gap-2">
-              <button className="button flex items-center justify-center text-xl"><IoIosArrowBack/></button>
-              <button className="button flex items-center justify-center text-xl"><IoIosArrowForward/></button>
+                </div>
               </div>
-            </div>
-            
+                <div  className=" flex justify-between items-center w-full button-div rounded-2xl" {...getRootProps()}>
+                  <input {...getInputProps()}  className="addimagebutton text-center w-fit bg-blue-700" />
+                  {
+                    isDragActive ?
+                      <p>Drop the files here ...</p> :
+                      <p>+Add Images</p>
+                  }
+                </div>
+
+                <div className="flex gap-2">
+
+                  <div className="button-div flex">
+                    <button className="button flex items-center justify-center text-xl z-50"><IoIosArrowBack /></button>
+                  </div>
+
+                  <div className="button-div">
+                    <button className="button z-50 flex items-center justify-center text-xl"><IoIosArrowForward /></button>
+                  </div>
+
+                </div>
+              
+
             </section>
 
 
@@ -140,6 +159,8 @@ function App() {
                 </defs>
               </svg>
             </div>
+
+
 
             {/* Square Container */}
             <div className='absolute left-5 h-full flex items-center'>

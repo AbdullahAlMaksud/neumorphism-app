@@ -21,14 +21,26 @@
     0px 3.26px 3.26px 0px rgba(255, 255, 255, 0.15) inset;
   backdrop-filter: blur(52.27996826171875px);
 }
-.button {
+.button-div {
+  /* padding: 10px; */
+  height: 46px;
+  width: 46px;
+  border-radius: 100%;
+  box-shadow: 4px 5px 20px #101213, -5px -3px 20px #6a7e93;
+  color: white;
+  z-index: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.button{
+    background: linear-gradient(139deg, #303439 , #161718 );
     padding: 10px;
     height: 46px;
     width: 46px;
-    border-radius: 100%;
-  background: linear-gradient(139deg, #303439 12.4%, #161718 94.96%);
-  box-shadow: 4px 5px 30px #101213,
-  -5px -3px 30px #96bee7;
-  color: white;
+    border-radius: 100px;
+    z-index: 1;
+    position: absolute;
 }
