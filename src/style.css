@@ -21,8 +21,9 @@
     0px 3.26px 3.26px 0px rgba(255, 255, 255, 0.15) inset;
   backdrop-filter: blur(52.27996826171875px);
 }
+
+
 .button-div {
-  /* padding: 10px; */
   height: 46px;
   width: 46px;
   border-radius: 100%;
@@ -35,6 +36,9 @@
   align-items: center;
 }
 
+.button:hover{
+  background: linear-gradient(139deg, #081c35 , #161718 );
+}
 .button{
     background: linear-gradient(139deg, #303439 , #161718 );
     padding: 10px;
@@ -43,4 +47,13 @@
     border-radius: 100px;
     z-index: 1;
     position: absolute;
+}
+
+.add-image-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
